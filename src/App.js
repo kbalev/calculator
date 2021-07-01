@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 const App = () => {
   const [firstDigit, setFirstDigit] = useState(``);
   const [secondDigit, setSecondDigit] = useState(``);
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
   const [operation, setOperation] = useState(``);
 
   const calculate = () =>{
