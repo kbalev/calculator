@@ -9,32 +9,40 @@ const App = () => {
 
   const calculate = () =>{
     if(operation === `+`) {
-      setFirstDigit((parseInt(firstDigit)+parseInt(secondDigit)))
-      setStep(2)}
+      setFirstDigit((parseFloat(firstDigit)+parseFloat(secondDigit)))
+      setSecondDigit(``)
+      setStep(0)}
     else if (operation === `-`) {
-      setFirstDigit((parseInt(firstDigit)-parseInt(secondDigit)))
-      setStep(2)}
+      setFirstDigit((parseFloat(firstDigit)-parseFloat(secondDigit)))
+      setSecondDigit(``)
+      setStep(0)}
     else if (operation === `*`) {
-      setFirstDigit((parseInt(firstDigit)*parseInt(secondDigit)))
-      setStep(2)}
+      setFirstDigit((parseFloat(firstDigit)*parseFloat(secondDigit)))
+      setSecondDigit(``)
+      setStep(0)}
     else if (operation === `/`) {
-      setFirstDigit((parseInt(firstDigit)/parseInt(secondDigit)))
-      setStep(2)}
+      setFirstDigit((parseFloat(firstDigit)/parseFloat(secondDigit)))
+      setSecondDigit(``)
+      setStep(0)}
     else {
       setFirstDigit(`Something went wrong, try again.`)
-      setStep(1)}
+      setStep(0)}
   }
 
 
   const reset = () =>{
     setFirstDigit(``);
     setSecondDigit(``);
-    setStep(1)
+    setStep(0)
     setOperation(``)
   }
 
   const selectDigit = (int) =>{
-    if(step === 1){
+    if(step ===0){
+      setFirstDigit(`${int}`)
+      setStep(1)
+    } 
+    else if(step === 1){
       setFirstDigit(`${firstDigit}` + `${int}`)
       }
     else {
@@ -77,6 +85,7 @@ const App = () => {
         <Digits digit={8}/>
         <Digits digit={9}/>
         <Digits digit={0}/>
+        <Digits digit={`.`}/>
 
       </div>
       <div className="operatorButtonsArray">
